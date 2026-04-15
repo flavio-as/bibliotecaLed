@@ -15,11 +15,8 @@ class Led {
     private:
 
     uint8_t pino;
-
     bool estado;
-
     bool desligarPorTempo = false;
-
     uint32_t desligarNoMomento;
 
     /**
@@ -28,11 +25,8 @@ class Led {
     void funcaoPiscar();
     
     uint32_t tempoAnteriorPiscar;
-
     uint32_t tempoEspera;
-
     bool estadoPiscar;
-
     uint16_t repeticoes;
 
     public:
@@ -49,28 +43,28 @@ class Led {
     void update();
 
     /**
-     * @brief Ativa o LED continuamente.
+     * @brief Liga o LED e o deixa ativado continuamente.
      */
     void ligar();
 
     /**
-     * @brief Ativa o LED e, após tempo determinado, desativa, em ms.
+     * @brief Liga o LED e, após tempo determinado, desliga-o, em ms.
      * @param tempoLigado_ms Duração do estado ativo, em ms.
      */
     void ligar(uint32_t tempoLigado_ms);
 
     /**
-     * @brief Desativa o LED e cancela os modos automáticos.
+     * @brief Desliga o LED e cancela os modos automáticos.
      */
     void desligar();
 
     /**
-     * @brief Ativa o LED, piscando em 1Hz.
+     * @brief Liga o LED, piscando em 1Hz.
      */
     void piscar ();
 
     /**
-     * @brief Ativa o LED, piscando em frequência definida.
+     * @brief Liga o LED, piscando na frequência definida.
      * @param frequencia Frequênca da piscada em hertz.
      */
     void piscar(float frequencia);
@@ -92,8 +86,15 @@ class Led {
      */
     uint8_t getPino();
 
+    /**
+     * @brief Altera o estado do LED entre os níveis alto e baixo.
+     * @param estado Nível digital, em que 1 é alto, 0, baixo.
+     */
     void setEstado(bool estado);
 
+    /**
+     * @brief Alterna o estado do LED para o nível oposto.
+     */
     void alternar();
 
     /**
